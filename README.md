@@ -20,6 +20,8 @@ To ensure high code quality and security, I integrated a robust CI/CD pipeline u
 ---
 
 ## 🏗️ Infrastructure Architecture
+![Infrastructure Architecture](./assets/architecture.png)
+
 To run this pipeline, I provisioned several servers on AWS:
 1. **AWS EKS Cluster**: The main cluster where the application pods run.
 2. **Jenkins Server (t2.large)**: The heart of the CI/CD automation.
@@ -75,6 +77,8 @@ graph TD
     style K fill:#326ce5,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
+![Jenkins Pipeline Dashboard](./assets/jenkins_pipeline.png)
+
 1. **Git Checkout**: Pulls the latest code.
 2. **Compile & Unit Test**: Uses Maven to build and test the Java app.
 3. **Trivy File Scan**: Scans the filesystem for vulnerabilities.
@@ -92,6 +96,8 @@ I set up **Prometheus** to scrape metrics from my servers and deployed **Grafana
 * **Blackbox Exporter**: Probes my live application endpoints over HTTP to ensure they are returning `200 OK` status codes.
 
 I connected Prometheus to Grafana as a data source and imported pre-built dashboards to create a beautiful, real-time observability center.
+
+![Grafana Monitoring Dashboard](./assets/grafana_dashboard.png)
 
 ---
 
